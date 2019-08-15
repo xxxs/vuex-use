@@ -12,24 +12,27 @@ npm run build
 
 ##  使用 vuex 
  
-  0.  安装  npm install vuex 
-  1. 在src目录下新建文件夹 store  
-  2. store目录下新建文件 
+  1.  安装  npm install vuex 
+  2. 在src目录下新建文件夹 store  
+  3. store目录下新建文件 
       index.js(存储状态 并建立依赖关系 )  
       actions.js(触发mutations中的方法 请求数据写在这里)  
       getters.js(状态获取逻辑)
       mutations.js (操作逻辑) 
-  3. 在main.js 中引入依赖  
- ```
+  4. 在main.js 中引入依赖  
+
+```
     import Vue from 'vue'
     import App from './App.vue'
     import router from './router'
     import store from './store/index'
-
     new Vue({ router,store,render: h => h(App)}).$mount('#app')
+    
 ```
- 4. 在store / index.js中建立依赖关系 
- ```
+
+  5.在store / index.js中建立依赖关系 
+  
+```
     import Vue from "vue"
     import Vuex from 'vuex'
     import actions from "./actions"
@@ -48,15 +51,87 @@ export default new Vuex.Store({
     mutations
 })
 ```
-   5.  在state中声明变量 
-   6. 使用getters 获取状态
-   7. 使用mutations更新状态
-   8. 使用actions提交更新
+
+6.在state中声明变量 
+
+```
+     state: {
+        list: [],
+        num: 999,
+        aaa:888
+
+    },
+```
+
+7.使用getters 获取状态
+
+```
+// 获取状态
+export default {
+    num: (state, getters) => {
+        return state.num
+    },
+    list: (state, getters) => {
+        return state.list
+    }
+}
+```
+
+8.使用mutations更新状态
+
+```
+
+const NUM_ADD = "NUM_ADD";
+const CITY_LIST = 'CITY_LIST';
+export default{
+    [NUM_ADD](state,n){
+         state.num += n ;
+    },
+
+    [CITY_LIST](state,n){
+            state.list = n
+    }
+
+}
+```
+
+ 9.使用actions提交更新
+
+```
+   import axios from "axios"
+export default {
+    getData({ commit }) {
+
+        if (this.state.list.length > 0) {
+            console.log(1111,this.state.list)
+        } else {
+            axios.get('./cityList.json').then(function (response) {
+                commit('CITY_LIST', response.data)
+                console.log('city',response.data);
+            }).catch(function (error) {
+                console.log(error);
+                commit('CITY_LIST', error)
+            });
+        }
+
+    },
+    addNum({ commit }) {
+        commit('NUM_ADD', 1111);
+    }
+}
+```
+
+ 10.页面中使用详见 ./src/views/city.vue  or test.vue
 
  
 
 
-*******************************
+ - 欢迎纠错 
+
+
+*******************************  
+
+*******************************  
 
 vuex 怎么进行状态管理
 vuex 使用store对象 来保存和管理整个应用的状态 
