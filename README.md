@@ -1,53 +1,59 @@
-##  vuex  使用 
+##  基于 vue-cli3 的 vuex demo  
 
- ## 安装 
-  - npm install vuex 
- ## 使用
-  1. 在src下新建文件夹 store  
-  2. store目录下新建文件  index.js(存储状态 并建立依赖关系  引入actions.js  getters.js mutations.js) actions.js(触发mutations中的方法 请求数据写在这里)   getters.js(状态获取逻辑) mutations.js (操作逻辑) 
+```
+// start
+npm install 
+
+npm run serve 
+
+npm run build  
+```
+
+
+##  使用 vuex 
+ 
+  0.  安装  npm install vuex 
+  1. 在src目录下新建文件夹 store  
+  2. store目录下新建文件 
+      index.js(存储状态 并建立依赖关系 )  
+      actions.js(触发mutations中的方法 请求数据写在这里)  
+      getters.js(状态获取逻辑)
+      mutations.js (操作逻辑) 
   3. 在main.js 中引入依赖  
-   ```
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store/index'
+ ```
+    import Vue from 'vue'
+    import App from './App.vue'
+    import router from './router'
+    import store from './store/index'
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
-
-   ```
-
-   4. 在store / index.js中建立依赖关系 
-   ```
-import Vue from "vue"
-import Vuex from 'vuex'
-import actions from "./actions"
-import mutations from "./mutations.js"
-import getters from "./getters.js"
-Vue.use(Vuex);
+    new Vue({ router,store,render: h => h(App)}).$mount('#app')
+```
+ 4. 在store / index.js中建立依赖关系 
+ ```
+    import Vue from "vue"
+    import Vuex from 'vuex'
+    import actions from "./actions"
+    import mutations from "./mutations.js"
+    import getters from "./getters.js"
+    Vue.use(Vuex);
 // 用export default 封装代码让外部可以引用
 export default new Vuex.Store({
     state: {
         list: [],
         num: 999,
         aaa:888
-
     },
     actions,
     getters,
     mutations
 })
-   ```
-
+```
    5.  在state中声明变量 
    6. 使用getters 获取状态
    7. 使用mutations更新状态
    8. 使用actions提交更新
 
-
+ 
 
 
 *******************************
