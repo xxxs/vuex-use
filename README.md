@@ -1,5 +1,8 @@
 ##  基于 vue-cli3 的 vuex demo  
 
+
+![二维码]("./src/assets/gzh.jpg")
+
 ```
 // start
 npm install 
@@ -21,7 +24,7 @@ npm run build
       actions.js(触发mutations中的方法 请求数据写在这里)  
       getters.js(状态获取逻辑)
       mutations.js (操作逻辑) 
-      
+
   4. 在main.js 中引入依赖  
 
 ```
@@ -101,7 +104,7 @@ export default{
  9.使用actions提交更新
 
 ```
-   import axios from "axios"
+import axios from "axios"
 export default {
     getData({ commit }) {
 
