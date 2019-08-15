@@ -1,7 +1,7 @@
 ##  基于 vue-cli3 的 vuex demo  
 
 
-[二维码](./src/assets/gzh.jpg)
+![二维码](https://github.com/XXXS/vue-use/blob/master/src/assets/gzh.jpg)
 
 ```
 // start
