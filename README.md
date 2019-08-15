@@ -13,12 +13,15 @@ npm run build
 ##  使用 vuex 
  
   1.  安装  npm install vuex 
+
   2. 在src目录下新建文件夹 store  
+
   3. store目录下新建文件 
       index.js(存储状态 并建立依赖关系 )  
       actions.js(触发mutations中的方法 请求数据写在这里)  
       getters.js(状态获取逻辑)
       mutations.js (操作逻辑) 
+      
   4. 在main.js 中引入依赖  
 
 ```
