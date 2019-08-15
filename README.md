@@ -101,7 +101,7 @@ export default{
 }
 ```
 
- 9.使用actions提交更新
+9. 使用actions提交更新
 
 ```
 import axios from "axios"
