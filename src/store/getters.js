@@ -5,5 +5,8 @@ export default {
     },
     list: (state, getters) => {
         return state.list
+    },
+    datas:(state,getters)=>{
+      return state.datas
     }
 }

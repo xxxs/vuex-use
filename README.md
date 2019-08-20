@@ -36,7 +36,7 @@ npm run build
     
 ```
 
-  5.在store / index.js中建立依赖关系 
+  5. 在store / index.js中建立依赖关系 
   
 ```
     import Vue from "vue"
@@ -96,7 +96,10 @@ export default{
 
     [CITY_LIST](state,n){
             state.list = n
-    }
+    },
+     setData({commit,state}, obj) {
+        commit('SET_DATA', obj)
+    },
 
 }
 ```

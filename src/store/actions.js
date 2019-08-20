@@ -17,5 +17,9 @@ export default {
     },
     addNum({ commit }) {
         commit('NUM_ADD', 1111);
-    }
+    },
+
+    setData({commit,state}, obj) {
+        commit('SET_DATA', obj)
+    },
 }

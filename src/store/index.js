@@ -9,7 +9,8 @@ export default new Vuex.Store({
     state: {
         list: [],
         num: 999,
-        aaa:888
+        aaa:888,
+        datas:''
 
     },
     actions,
